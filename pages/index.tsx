@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import Time from '../components/Time';
-import '../styles/Home.module.css'
+import home from '../styles/scss/Home.module.scss'
+import Chromakey from '../styles/scss/Chromakey.module.scss'
 
 const Home: NextPage = () => {
   const [selectedType, setSelectedType] = useState("noframe");
@@ -41,22 +42,28 @@ const Home: NextPage = () => {
 
   const array = ["noframe","simple","pastel","neon","retroGame","liquid","geometory","apex","retro"];
   const neonArray = ["white","blue"];
-  const chromakeyArray = ["green","red","blue","costom"];
+  const chromakeyArray = ["green","red","blue","custom"];
   const geometryArray = ["pattern1","pattern2","pattern3"];
   const apexArray = ["red","blue","green"];
   const retroArray = ["pattern1","pattern2"];
+
+  const getChromakey = (chromakey:string) => {
+    if(chromakey === "green"){
+      return `${Chromakey.chromakey_green} ${home.frame}`;
+    }else if(chromakey === "red"){
+      return `${Chromakey.chromakey_red} ${home.frame}`;
+    }else if(chromakey === "blue"){
+      return `${Chromakey.chromakey_blue} ${home.frame}`;
+    }
+  }
   return (
-    <div className="row">
+    <div className={home.row}>
       <div
-        className={
-          chromakey !== "costom"?
-          `frame ${chromakey}`:
-          `frame`
-        }
-        {...chromakey === "costom" && {style:{backgroundColor:custom}}}
+        className={chromakey !== "custom" ? getChromakey(chromakey) : `${home.frame}`}
+        {...chromakey === "custom" && {style:{backgroundColor:custom}}}
       >
         <Time selectedType={selectedType} color={color} neon={neon} geometory={geometory} apex={apex} retro={retro}/>
-        <div className="chromakey">
+        <div className={Chromakey.chromakey}>
           <select 
             defaultValue={chromakey} 
             onChange={(e)=>changeChromakey(e)}
@@ -65,15 +72,15 @@ const Home: NextPage = () => {
               return <option key={index} value={item}>{item}</option>
             })}
           </select>
-          {chromakey==="costom"&& <input type="color" onChange={(e)=>customChromakey(e)}/>}
+          {chromakey==="custom"&& <input type="color" onChange={(e)=>customChromakey(e)}/>}
         </div>
       </div>
-      <div className="inner">
-        <h1 className='page_title'>配信用&nbsp;時計オーバーレイ</h1>
+      <div className={home.inner}>
+        <h1 className={home.page_title}>配信用&nbsp;時計オーバーレイ</h1>
         <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
         <p>デザインパターンは今後拡充予定です。</p>
         <p>ご利用にあたって、ご意見、ご要望などはTwitter（<a href="https://twitter.com/ts_create_" target="_blanc" rel="noopener">@ts_create_</a>）のDMでお願いします。</p>
-        <section className='control'>
+        <section className={home.control}>
           <ul>
             {
               array.map((item,index)=>{
