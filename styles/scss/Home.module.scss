@@ -13,7 +13,6 @@
 
 .row{
   display: flex;
-  flex-direction: column;
   position: relative;
   >*{
     width: 100%;
@@ -27,8 +26,7 @@
   color: #666;
   box-sizing: border-box;
   background-color: #B9B7BD;
-  p{
-    margin: 0;
+  >*{
     font-family: a-otf-jun-pro, sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -45,10 +43,11 @@
   font-style: normal;
 }
 .control{
-  padding: 2rem 0;
+  padding: 1rem;
   border-top: 3px solid #EEEDE7;
   border-bottom: 3px solid #EEEDE7;
   margin: 2rem 0;
+  box-sizing: border-box;
   ul{
     list-style: none;
     padding: 0;
@@ -95,5 +94,6 @@
   input{
     display: inline-block;
     width: 10%;
+    margin-right: 10px;
   }
 }
