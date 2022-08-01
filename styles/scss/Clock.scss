@@ -5,6 +5,8 @@
     font-weight: 400;
     font-style: normal;
     color: #fff;
+    width: 300px;
+    text-align: center;
     .date_day,.date_date{
         font-size: 25px;
         display: inline-block;
@@ -12,7 +14,6 @@
     }
     .date_day{
         margin-right: 10px;
-        margin-left: -10px;
     }
     .date_time{
         font-size: 75px;
