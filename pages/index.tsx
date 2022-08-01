@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import Control from "../components/Control";
-import Time from "../components/Time";
+// import Time from "../components/Time";
 import home from "../styles/scss/Home.module.scss";
+import dynamic from "next/dynamic";
+
+const AvoidSSRComponent = dynamic(
+  () => import("../components/Time")
+  , { ssr: false }
+)
 
 const Home: NextPage = () => {
   const [color, setColor] = useState("#ffffff");
@@ -29,7 +35,7 @@ const Home: NextPage = () => {
       />
       <div className={home.row}>
         <div className={home.frame}>
-          <Time
+          <AvoidSSRComponent 
             color={color}
             neon={neon}
             geometory={geometory}
