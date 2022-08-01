@@ -1,3 +1,3 @@
-import { atom } from "jotai";
+import { createContext } from "react";
 
-export const selectedAtom = atom("noframe");
+export const selectContext = createContext('noframe');

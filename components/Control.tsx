@@ -1,9 +1,10 @@
 import home from "../styles/scss/Home.module.scss";
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useContext, useState } from "react";
 // import ColorPicker from "./ColorPicker";
 import SelectType from "./SelectType";
-import { selectedAtom } from "../Atom";
+// import { selectedAtom } from "../Atom";
 import { useAtom } from "jotai";
+import { selectedTypeContext } from "../pages/_app";
 
 type PropsType = {
   color: string;
@@ -15,7 +16,7 @@ type PropsType = {
 };
 const Control = (props: PropsType) => {
   const { color, setColor, setNeon, setGeometory, setApex, setRetro } = props;
-
+    const {selectedType, setSelectedType} = useContext(selectedTypeContext);
   const array = [
     "noframe",
     "simple",
@@ -32,7 +33,6 @@ const Control = (props: PropsType) => {
   const apexArray = ["apex-red", "apex-blue", "apex-green"];
   const retroArray = ["retro1", "retro2"];
   const [openPick, setOpenPick] = useState(false);
-  const [selectedType, setSelectedType] = useAtom(selectedAtom);
 
   const onClickType = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedType(e.target.value);

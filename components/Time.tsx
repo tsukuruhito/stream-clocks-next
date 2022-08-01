@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
-import { useEffect, useMemo, useState } from "react";
-import { selectedAtom } from "../Atom";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { selectedTypeContext } from "../pages/_app";
 
 type PropsType = {
   color: string;
@@ -15,7 +15,7 @@ const Time = (props: PropsType) => {
   const [day, setDay] = useState(
     new Date().toLocaleString("en-US", { weekday: "long" })
   );
-  const [selectedType, setSelectedType] = useAtom(selectedAtom);
+    const {selectedType} = useContext(selectedTypeContext);
   const { color, neon, geometory, apex, retro } = props;
 
   const getTime = useMemo(() => {
