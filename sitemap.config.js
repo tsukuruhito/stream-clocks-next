@@ -3,6 +3,12 @@ const config = {
     generateRobotsTxt: true,
     sitemapSize: 7000,
     outDir: './out',
+    exclude: ['/server-sitemap.xml'], // <= exclude here
+    robotsTxtOptions: {
+      additionalSitemaps: [
+        'https://example.com/server-sitemap.xml', // <==== Add here
+      ],
+    },
   };
 
 export default config;
