@@ -4,6 +4,7 @@ import Control from "../components/Control";
 // import Time from "../components/Time";
 import home from "../styles/scss/Home.module.scss";
 import dynamic from "next/dynamic";
+import Note from "../components/Note";
 
 const AvoidSSRComponent = dynamic(
   () => import("../components/Time")
@@ -60,7 +61,7 @@ const Home: NextPage = () => {
           <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
           <p>デザインパターンは今後拡充予定です。</p>
           <p>
-            ご利用にあたって、ご意見、ご要望などはTwitter（
+            ご意見、ご要望などはTwitter（
             <a
               href="https://twitter.com/ts_create_"
               target="_blanc"
@@ -79,7 +80,9 @@ const Home: NextPage = () => {
               カスタムCSSに記載がない場合は以下をコピー&amp;ペースト
               <div>body&#123;background-color: rgba(0, 0, 0, 0);&#125;</div>
             </li>
+            <li>対話モードを使いデザインパターンやテキスト色を変更</li>
           </ol>
+          <Note />
         </div>
       </div>
       <div className="px-5 box-border text-sm text-neutral-600">

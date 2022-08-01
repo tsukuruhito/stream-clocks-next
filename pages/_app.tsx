@@ -10,6 +10,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Stream Clocks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="ライブ配信でお使いいただける時計オーバーレイです。デザインの切り替えもOBSから行えるこれまでにないオーバーレイです。" />
       </Head>
       <GoogleTagManager googleTagManagerId={googleTagManagerId as GoogleTagManagerId}/>
       <Component {...pageProps} />
