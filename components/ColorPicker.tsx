@@ -1,5 +1,4 @@
-
-import { Dispatch, memo, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { HexColorPicker } from "react-colorful";
 type PropsType = {
   color: string;

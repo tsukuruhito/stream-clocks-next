@@ -1,13 +1,8 @@
 import home from "../styles/scss/Home.module.scss";
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useState,
-} from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import SelectType from "./SelectType";
-import { menuAtom, selectedAtom } from "../Atom";
+import { selectedAtom } from "../Atom";
 import { useAtom } from "jotai";
 
 type PropsType = {
@@ -19,14 +14,7 @@ type PropsType = {
   setRetro: Dispatch<SetStateAction<string>>;
 };
 const Control = (props: PropsType) => {
-  const {
-    color,
-    setColor,
-    setNeon,
-    setGeometory,
-    setApex,
-    setRetro,
-  } = props;
+  const { color, setColor, setNeon, setGeometory, setApex, setRetro } = props;
 
   const array = [
     "noframe",
@@ -45,12 +33,10 @@ const Control = (props: PropsType) => {
   const retroArray = ["retro1", "retro2"];
   const [openPick, setOpenPick] = useState(false);
   const [selectedType, setSelectedType] = useAtom(selectedAtom);
-  const [menu, setMenu] = useAtom(menuAtom);
 
   const onClickType = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedType(e.target.value);
     setOpenPick(false);
-    setMenu(false);
   };
   const openPickMenu = () => {
     setOpenPick(!openPick);
@@ -86,11 +72,7 @@ const Control = (props: PropsType) => {
                 </div>
               )}
               {item === "neon" && (
-                <SelectType
-                  name="neon"
-                  ary={neonArray}
-                  setState={setNeon}
-                />
+                <SelectType name="neon" ary={neonArray} setState={setNeon} />
               )}
               {item === "geometory" && (
                 <SelectType
@@ -100,20 +82,11 @@ const Control = (props: PropsType) => {
                 />
               )}
               {item === "apex" && (
-                <SelectType
-                  name="apex"
-                  ary={apexArray}
-                  setState={setApex}
-                />
+                <SelectType name="apex" ary={apexArray} setState={setApex} />
               )}
               {item === "retro" && (
-                <SelectType
-                  name="retro"
-                  ary={retroArray}
-                  setState={setRetro}
-                />
+                <SelectType name="retro" ary={retroArray} setState={setRetro} />
               )}
-              
             </li>
           );
         })}
