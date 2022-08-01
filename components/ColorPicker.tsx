@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { HexColorPicker } from "react-colorful";
+
 type PropsType = {
   color: string;
   setColor: Dispatch<SetStateAction<string>>;
