@@ -3,12 +3,6 @@ const config = {
     generateRobotsTxt: true,
     sitemapSize: 7000,
     outDir: './out',
-    exclude: ['/server-sitemap.xml'], 
-    robotsTxtOptions: {
-      additionalSitemaps: [
-        'https://stream-clocks.com/server-sitemap.xml',
-      ],
-    },
   };
 
 export default config;
