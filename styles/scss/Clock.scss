@@ -86,7 +86,7 @@
 }
   
 .neon{
-    &.blue{
+    &-blue{
         position: relative;
         width: 300px;
         height: 120px;
@@ -138,7 +138,7 @@
             filter: drop-shadow(0 0 5px rgba(255, 246, 143,0.5));
         }
     }
-    &.white{
+    &-white{
         position: relative;
         width: 300px;
         height: 120px;
@@ -289,21 +289,21 @@
     box-sizing: border-box;
     border-radius: 15px;
   }
-  &.pattern1{
+  &.geo1{
     background-color:#EEEDE7;
     color: #868B8E;
     &::before{
       border: 3px solid #868B8E;
     }
   }
-  &.pattern2{
+  &.geo2{
     background-color:#C2C67A;
     color: #ffffff;
     &::before{
       border: 3px solid #A2AD69;
     }
   }
-  &.pattern3{
+  &.geo3{
     background-color:#8ED7F4;
     color: #ffffff;
     &::before{
@@ -344,13 +344,13 @@
   font-family: industry,sans-serif;
   font-weight: bold;
   font-style: normal;
-  &.red{
+  &-red{
     background-image: url("/apex-r.png");
   }
-  &.blue{
+  &-blue{
       background-image: url("/apex-b.png");
   }
-  &.green{
+  &-green{
       background-image: url("/apex-g.png");
   }
   .date_body{
@@ -398,12 +398,12 @@
   font-family: ten-mincho,serif;
   font-weight: 400;
   font-style: normal;
-  &.pattern1{
+  &.retro1{
     background-image: url("/retro-red.png");
     background-size: contain;
     color: #fff;
   }
-  &.pattern2{
+  &.retro2{
     background-image: url("/retro-beige.png");
     color: #A67C52;
   }
