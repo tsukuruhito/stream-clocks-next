@@ -1,4 +1,3 @@
-import { useAtom } from "jotai";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { selectedTypeContext } from "../pages/_app";
 

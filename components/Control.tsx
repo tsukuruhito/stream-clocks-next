@@ -2,8 +2,6 @@ import home from "../styles/scss/Home.module.scss";
 import { ChangeEvent, Dispatch, SetStateAction, useContext, useState } from "react";
 // import ColorPicker from "./ColorPicker";
 import SelectType from "./SelectType";
-// import { selectedAtom } from "../Atom";
-import { useAtom } from "jotai";
 import { selectedTypeContext } from "../pages/_app";
 
 type PropsType = {
