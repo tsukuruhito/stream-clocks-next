@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/inline-script-id */
 import type { NextPage } from "next";
-import Head from "next/head";
 import Script from "next/script";
 import { useState } from "react";
 import Control from "../components/Control";
@@ -16,9 +15,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Stream Clocks</title>
-      </Head>
       <Script
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{

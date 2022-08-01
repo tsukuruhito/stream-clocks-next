@@ -1,6 +1,7 @@
-import { Dispatch, FormEvent, SetStateAction, useContext, useRef, useState } from "react";
+import { useAtom } from "jotai";
+import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react";
+import { selectedTypeAtom } from "../Atom";
 import home from "../styles/scss/Home.module.scss";
-import { selectedTypeContext } from "../pages/_app";
 
 type PropsType = {
   name: string;
@@ -9,9 +10,9 @@ type PropsType = {
 };
 const SelectType = (props: PropsType) => {
   const { name, ary, setState } = props;
-    const { setSelectedType} = useContext(selectedTypeContext);
   const ref = useRef<HTMLDivElement>(null);
   const [checkedIndex, setCheckedIndex] = useState(0);
+  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom)
 
   const setClockType = (index: number) => {
     setState(ary[index]);
