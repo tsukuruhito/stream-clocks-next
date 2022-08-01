@@ -10,7 +10,7 @@
     "format": "prettier --write --ignore-path .gitignore \"./**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
-    "jotai": "^1.7.6",
+    "jotai": "^1.7.0",
     "next": "^12.2.3",
     "react": "^18.2.0",
     "react-colorful": "^5.5.1",
