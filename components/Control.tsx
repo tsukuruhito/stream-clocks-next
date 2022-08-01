@@ -1,6 +1,6 @@
 import home from "../styles/scss/Home.module.scss";
 import { ChangeEvent, Dispatch, SetStateAction, useContext, useState } from "react";
-// import ColorPicker from "./ColorPicker";
+import ColorPicker from "./ColorPicker";
 import SelectType from "./SelectType";
 import { selectedTypeContext } from "../pages/_app";
 
@@ -60,13 +60,13 @@ const Control = (props: PropsType) => {
                   style={{ backgroundColor: color }}
                   onClick={openPickMenu}
                 >
-                  {/* <div
+                  <div
                     className={`absolute z-10 right-0 top-8  ${
                       !openPick && "hidden"
                     }`}
                   >
                     <ColorPicker color={color} setColor={setColor} />
-                  </div> */}
+                  </div>
                 </div>
               )}
               {item === "neon" && (
