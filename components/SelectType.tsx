@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react";
-import { selectedTypeAtom } from "../Atom";
+import { apexAtom, checkedIndexAtom, geometoryAtom, neonAtom, retroAtom, selectedTypeAtom } from "../Atom";
 import home from "../styles/scss/Home.module.scss";
 
 type PropsType = {
@@ -11,48 +11,71 @@ type PropsType = {
 const SelectType = (props: PropsType) => {
   const { name, ary, setState } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [checkedIndex, setCheckedIndex] = useState(0);
-  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom)
+  const [checkedIndex, setCheckedIndex] = useAtom(checkedIndexAtom);
+  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
+  const [neonIndex, setNeonIndex] = useAtom(neonAtom);
+    const [geometoryIndex, setGeometoryIndex] = useAtom(geometoryAtom);
+    const [apexIndex, setApexIndex] = useAtom(apexAtom);
+    const [retroIndex, setRetroIndex] = useAtom(retroAtom);
 
-  const setClockType = (index: number) => {
+
+  const setClockType = (index: number, name:string) => {
     setState(ary[index]);
-    setCheckedIndex(index);
+    if(name === "neon"){
+        setNeonIndex(index);
+    }else if(name === "geometory"){
+        setGeometoryIndex(index);
+    }else if(name === "apex"){
+        setApexIndex(index);
+    }else{
+        setRetroIndex(index);
+    }
   };
   const openMenu = (e: FormEvent<HTMLButtonElement>, ary: string[]) => {
     setSelectedType(e.currentTarget.value);
-    setState(ary[checkedIndex]);
+    if(name === "neon"){
+        setState(ary[neonIndex]);
+    }else if(name === "geometory"){
+        setState(ary[geometoryIndex]);
+    }else if(name === "apex"){
+        setState(ary[apexIndex]);
+    }else{
+        setState(ary[retroIndex]);
+    }
     if (ref.current) {
       ref.current.classList.toggle("hidden");
     }
   };
   return (
-    <button
-      type="button"
-      value={name}
-      onClick={(e) => openMenu(e, ary)}
-      className={`text-sm pr-5 ${home.arrow}`}
-    >
-      other
-      <div className="hidden" ref={ref}>
-        <ul className={home.select}>
-          {ary.map((item, index) => {
-            return (
-              <li key={index}>
-                <input
-                  type="radio"
-                  name={name}
-                  value={item}
-                  id={item}
-                  onChange={() => setClockType(index)}
-                  defaultChecked={checkedIndex === index}
-                />
-                <label htmlFor={item}>{item}</label>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </button>
+    <div className="relative text-sm">
+        <button
+        type="button"
+        value={name}
+        onClick={(e) => openMenu(e, ary)}
+        className={`pr-5 ${home.arrow}`}
+        >
+        other
+        </button>
+        <div className="hidden" ref={ref}>
+            <ul className={home.select}>
+            {ary.map((item, index) => {
+                return (
+                <li key={index}>
+                    <input
+                    type="radio"
+                    name={name}
+                    value={item}
+                    id={item}
+                    onChange={() => setClockType(index, name)}
+                    defaultChecked={checkedIndex === index}
+                    />
+                    <label htmlFor={item}>{item}</label>
+                </li>
+                );
+            })}
+            </ul>
+        </div>
+    </div>
   );
 };
 export default SelectType;

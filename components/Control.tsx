@@ -3,7 +3,7 @@ import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import SelectType from "./SelectType";
 import { useAtom } from "jotai";
-import { selectedTypeAtom } from "../Atom";
+import { apexAtom, checkedIndexAtom, geometoryAtom, neonAtom, retroAtom, selectedTypeAtom } from "../Atom";
 
 type PropsType = {
   color: string;
@@ -31,17 +31,31 @@ const Control = (props: PropsType) => {
   const apexArray = ["apex-red", "apex-blue", "apex-green"];
   const retroArray = ["retro1", "retro2"];
   const [openPick, setOpenPick] = useState(false);
-  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom)
+  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
+  const [checkedIndex, setCheckedIndex] = useAtom(checkedIndexAtom);
+  const [neonIndex, setNeonIndex] = useAtom(neonAtom);
+    const [geometoryIndex, setGeometoryIndex] = useAtom(geometoryAtom);
+    const [apexIndex, setApexIndex] = useAtom(apexAtom);
+    const [retroIndex, setRetroIndex] = useAtom(retroAtom);
 
   const onClickType = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedType(e.target.value);
     setOpenPick(false);
+    if(e.target.value === "neon"){
+      setNeon(neonArray[neonIndex]);
+    }else if(e.target.value === "geometory"){
+      setGeometory(geometoryArray[geometoryIndex]);
+    }else if(e.target.value === "apex"){
+      setApex(apexArray[apexIndex]);
+    }else {
+        setRetro(retroArray[retroIndex]);
+    }
   };
   const openPickMenu = () => {
     setOpenPick(!openPick);
   };
   return (
-    <section className={home.control}>
+    <div className={home.control}>
       <ul>
         {array.map((item, index) => {
           return (
@@ -90,7 +104,7 @@ const Control = (props: PropsType) => {
           );
         })}
       </ul>
-    </section>
+    </div>
   );
 };
 
