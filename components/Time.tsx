@@ -16,7 +16,7 @@ const Time = (props: PropsType) => {
     new Date().toLocaleString("en-US", { weekday: "long" })
   );
   const { color, neon, geometory, apex, retro } = props;
-  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom)
+  const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
 
   const getTime = useMemo(() => {
     setInterval(() => {

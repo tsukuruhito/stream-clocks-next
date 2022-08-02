@@ -6,13 +6,12 @@ import home from "../styles/scss/Home.module.scss";
 import dynamic from "next/dynamic";
 import Note from "../components/Note";
 
-const AvoidSSRComponent = dynamic(
-  () => import("../components/Time")
-  , { ssr: false }
-)
+const AvoidSSRComponent = dynamic(() => import("../components/Time"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
-  const [color, setColor] = useState("#ffffff");
+  const [color, setColor] = useState("#d5c3a4");
   const [neon, setNeon] = useState("white");
   const [geometory, setGeometory] = useState("pattern1");
   const [apex, setApex] = useState("red");
@@ -35,14 +34,17 @@ const Home: NextPage = () => {
         }}
       />
       <div className={home.row}>
-        <div className={home.frame}>
-          <AvoidSSRComponent 
-            color={color}
-            neon={neon}
-            geometory={geometory}
-            apex={apex}
-            retro={retro}
-          />
+        <div className="m-8">
+          <p className="base-font text-primary font-bold">View</p>
+          <div className={home.frame}>
+            <AvoidSSRComponent
+              color={color}
+              neon={neon}
+              geometory={geometory}
+              apex={apex}
+              retro={retro}
+            />
+          </div>
         </div>
         <Control
           color={color}
@@ -53,11 +55,11 @@ const Home: NextPage = () => {
           setRetro={setRetro}
         />
       </div>
-      <div className={home.inner}>
-        <h1 className="text-4xl inline-block mb-4">
+      <section className="base-font p-8 text-stone-500 max-w-screen-lg mx-auto">
+        <h1 className="text-2xl inline-block font-semibold mb-4 text-primary">
           配信用&nbsp;時計オーバーレイ
         </h1>
-        <div className="text-base font-mono">
+        <div className="mb-6">
           <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
           <p>デザインパターンは今後拡充予定です。</p>
           <p>
@@ -66,35 +68,55 @@ const Home: NextPage = () => {
               href="https://twitter.com/ts_create_"
               target="_blanc"
               rel="noopener"
+              className="text-primary"
             >
               @ts_create_
             </a>
             ）のDMでお願いします。
           </p>
-          <h2 className="text-xl mt-4 inline-block">使用方法</h2>
-          <ol className="list-inside list-decimal">
-            <li>OBSのソースからブラウザを選択</li>
-            <li>このサイトのURLをコピー&amp;ペースト</li>
-            <li>幅:1000、高さ:1000を指定</li>
-            <li>
-              カスタムCSSに記載がない場合は以下をコピー&amp;ペースト
-              <div>body&#123;background-color: rgba(0, 0, 0, 0);&#125;</div>
-            </li>
-            <li>対話モードを使いデザインパターンやテキスト色を変更</li>
-          </ol>
+        </div>
+        <div className="text-base flex justify-between mb-8 flex-wrap">
+          <div className="contentBox">
+            <h2 className="headingSec">使用方法</h2>
+            <ol className="list-inside list-decimal p-2">
+              <li>OBSのソースからブラウザを選択</li>
+              <li>このサイトのURLをコピー&amp;ペースト</li>
+              <li>時計の表示エリアと操作エリアが入るように幅と高さを指定</li>
+              <li>
+                透過されていない場合は以下をカスタムCSSにコピー&amp;ペースト
+                <div>body&#123;background-color: rgba(0, 0, 0, 0);&#125;</div>
+              </li>
+              <li>対話モードを使いデザインパターンやテキスト色を変更</li>
+            </ol>
+          </div>
           <Note />
         </div>
-      </div>
-      <div className="px-5 box-border text-sm text-neutral-600">
-        <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。</p>
-        <p>このGoogleアナリティクスはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
-        <p>
-          この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。この規約に関しての詳細は
-          <a href="https://marketingplatform.google.com/about/analytics/terms/jp/" rel="noopener">Googleアナリティクスサービス利用規約</a>のページや
-          <a href="https://policies.google.com/technologies/ads?hl=ja" rel="noopener">Googleポリシーと規約</a>
-          ページをご覧ください。
-        </p>
-      </div>
+        <section className="text-xs text-stone-500">
+          <p>
+            当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。
+          </p>
+          <p>
+            このGoogleアナリティクスはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。
+          </p>
+          <p>
+            この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。この規約に関しての詳細は
+            <a
+              href="https://marketingplatform.google.com/about/analytics/terms/jp/"
+              rel="noopener"
+            >
+              Googleアナリティクスサービス利用規約
+            </a>
+            のページや
+            <a
+              href="https://policies.google.com/technologies/ads?hl=ja"
+              rel="noopener"
+            >
+              Googleポリシーと規約
+            </a>
+            ページをご覧ください。
+          </p>
+        </section>
+      </section>
     </>
   );
 };

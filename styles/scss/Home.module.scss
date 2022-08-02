@@ -1,11 +1,12 @@
 .frame{
   position: relative;
   padding: 20px;
-  width: 100%;
+  width: 450px;
   height: 300px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  border: 2px dashed #EEEDE7;
   >*{
     margin: 0 auto
   }
@@ -14,26 +15,9 @@
 .row{
   display: flex;
   position: relative;
-  >*{
-    width: 100%;
-    min-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-.inner{
-  padding: 20px;
-  color: #666;
-  box-sizing: border-box;
-  background-color: #B9B7BD;
-  >*{
-    font-family: a-otf-jun-pro, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  a{
-    color: #666;
-  }
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .page_title{
@@ -46,8 +30,9 @@
   padding: 1rem;
   border-top: 3px solid #EEEDE7;
   border-bottom: 3px solid #EEEDE7;
-  margin: 2rem 0;
   box-sizing: border-box;
+  max-width: 600px;
+  width: 100%;
   > ul{
     list-style: none;
     padding: 0;

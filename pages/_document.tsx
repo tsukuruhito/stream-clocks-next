@@ -6,15 +6,15 @@ const Document = () => {
       <Head />
       <body>
         <noscript
-            dangerouslySetInnerHTML={{
-                __html: `
+          dangerouslySetInnerHTML={{
+            __html: `
                     <iframe
                     src="https://www.googletagmanager.com/ns.html?id=GTM-WBQP74M"
                     height="0"
                     width="0"
                     style="display:none;visibility:hidden"/>
                 `,
-            }}
+          }}
         />
         <Main />
         <NextScript />
