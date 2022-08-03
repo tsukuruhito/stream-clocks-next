@@ -8,7 +8,9 @@ module.exports = {
     extend: {},
     colors: {
       transparent: "transparent",
-      "primary": "#d5c3a4"
+      "white": "#fff",
+      "primary": "#d5c3a4",
+      "secondary": "#f5efe5",
     }
   },
   plugins: [],

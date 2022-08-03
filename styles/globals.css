@@ -14,7 +14,9 @@ body{
     @apply text-base;
   }
   .contentBox{
-    @apply my-2 box-border w-full md:w-[calc(50%_-_2rem)];
+    @apply my-2 box-border w-full md:w-[calc(50%_-_2rem)] relative border-2 border-primary rounded-md p-2 bg-white bg-opacity-60 filter backdrop-blur-md
+    before:block before:w-full before:h-full before:absolute before:top-3 before:left-3
+    before:bg-secondary before:bg-opacity-30 before:-z-10 before:rounded-md before:p-2;
   }
   .headingSec{
     @apply text-xl font-bold text-primary pb-2 border-b-2 border-primary;

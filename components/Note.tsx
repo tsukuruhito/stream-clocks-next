@@ -20,7 +20,7 @@ const Note = () => {
         </li>
         <li className="mb-2">
           <dl className="flex flex-row-reverse justify-end pb-2 border-b-[1px] border-primary border-opacity-60">
-            <dt>ついに時計以外の素材公開します。</dt>
+            <dt>時計以外の素材公開します。</dt>
             <dd className="mr-4">2022/08/??</dd>
           </dl>
         </li>

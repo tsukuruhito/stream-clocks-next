@@ -45,7 +45,7 @@
       font-size: 20px;
       color: #868B8E;
       background-color: #EEEDE7;
-      padding: 10px;
+      padding-right: 10px;
       box-sizing: border-box;
       border-radius: 10px;
       font-family: a-otf-jun-pro, sans-serif;
@@ -92,17 +92,31 @@
       border-color: #fff;
     }
   }
-  label, input{
-    display: inline-block;
-    cursor: pointer;
+  input[type="radio"]{
+    display: none;
+    &:checked + label::before{
+      background-color: #d5c3a4;
+    }
   }
   label{
     width: 90%;
-  }
-  input{
-    width: 10%;
-    margin-right: 10px;
-    
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 10px 10px 40px;
+    &::before{
+      content: "";
+      position: absolute;
+      display: block;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid #868B8E;
+      box-sizing: border-box;
+    }
   }
 }
 input.colorPick{

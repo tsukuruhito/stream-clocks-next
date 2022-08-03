@@ -72,6 +72,7 @@ const Control = (props: PropsType) => {
                 type="radio"
                 name="type"
                 value={item}
+                className="click-type"
                 onChange={(e) => onClickType(e)}
                 checked={item === selectedType}
               />

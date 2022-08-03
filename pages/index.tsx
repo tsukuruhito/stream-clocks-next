@@ -61,6 +61,7 @@ const Home: NextPage = () => {
         </h1>
         <div className="mb-6">
           <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
+          <p>このページの配信用時計オーバーレイは個人利用、法人利用問わず無料でお使いいただけます。</p>
           <p>デザインパターンは今後拡充予定です。</p>
           <p>
             ご意見、ご要望などはTwitter（
@@ -74,6 +75,7 @@ const Home: NextPage = () => {
             </a>
             ）のDMでお願いします。
           </p>
+          <p>今後、どんどん拡張されていくのでお楽しみに！</p>
         </div>
         <div className="text-base flex justify-between mb-8 flex-wrap">
           <div className="contentBox">
