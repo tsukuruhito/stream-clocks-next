@@ -72,7 +72,7 @@ const Control = (props: PropsType) => {
                 type="radio"
                 name="type"
                 value={item}
-                className="click-type"
+                className="clock-type"
                 onChange={(e) => onClickType(e)}
                 checked={item === selectedType}
               />
