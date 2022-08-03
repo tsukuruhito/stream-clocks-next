@@ -69,20 +69,34 @@
       left: 50%;
       transform: translate(-50%,-50%);
       text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+        "a b" 
+        "c c";
+      width: 100%;
+      column-gap: 10px;
   }
   .date_day,.date_date{
       display: inline-block;
       opacity: 1;
   }
   .date_day{
-      margin-right: 10px;
-      margin-left: -10px;
+      grid-area: a;
+      justify-self: right;
+  }
+  .date_date{
+      grid-area: b;
+      justify-self: left;
   }
   .date_time{
       display: block;
       font-size: 55px;
       letter-spacing: 10px;
       font-weight: bold;
+      grid-area: c;
+      place-self: center;
+      align-self: center;
   }
 }
   
@@ -367,9 +381,9 @@
   }
   .date_body{
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-40%);
+    transform: translate(-50%,-50%);
   }
   .date_day,.date_date{
     opacity: 0.7;
