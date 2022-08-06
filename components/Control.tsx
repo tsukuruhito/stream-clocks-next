@@ -7,6 +7,7 @@ import {
   apexAtom,
   checkedIndexAtom,
   geometoryAtom,
+  gradientAtom,
   neonAtom,
   retroAtom,
   selectedTypeAtom,
@@ -19,9 +20,10 @@ type PropsType = {
   setGeometory: Dispatch<SetStateAction<string>>;
   setApex: Dispatch<SetStateAction<string>>;
   setRetro: Dispatch<SetStateAction<string>>;
+  setGradient: Dispatch<SetStateAction<string>>;
 };
 const Control = (props: PropsType) => {
-  const { color, setColor, setNeon, setGeometory, setApex, setRetro } = props;
+  const { color, setColor, setNeon, setGeometory, setApex, setRetro, setGradient } = props;
   const array = [
     "noframe",
     "simple",
@@ -32,11 +34,13 @@ const Control = (props: PropsType) => {
     "geometory",
     "apex",
     "retro",
+    "gradient"
   ];
   const neonArray = ["neon-white", "neon-blue"];
-  const geometoryArray = ["geo1", "geo2", "geo3"];
+  const geometoryArray = ["geo1", "geo2", "geo3", "geo4", "geo5"];
   const apexArray = ["apex-red", "apex-blue", "apex-green"];
   const retroArray = ["retro1", "retro2"];
+  const gradientArray = ["gradient1", "gradient2", "gradient3", "gradient4"];
   const [openPick, setOpenPick] = useState(false);
   const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
   const [checkedIndex, setCheckedIndex] = useAtom(checkedIndexAtom);
@@ -44,6 +48,7 @@ const Control = (props: PropsType) => {
   const [geometoryIndex, setGeometoryIndex] = useAtom(geometoryAtom);
   const [apexIndex, setApexIndex] = useAtom(apexAtom);
   const [retroIndex, setRetroIndex] = useAtom(retroAtom);
+  const [gradientIndex, setGradientIndex] = useAtom(gradientAtom);
 
   const onClickType = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedType(e.target.value);
@@ -54,8 +59,10 @@ const Control = (props: PropsType) => {
       setGeometory(geometoryArray[geometoryIndex]);
     } else if (e.target.value === "apex") {
       setApex(apexArray[apexIndex]);
-    } else {
+    } else if(e.target.value === "retro") {
       setRetro(retroArray[retroIndex]);
+    }else if(e.target.value === "gradient") {
+      setGradient(gradientArray[gradientIndex]);
     }
   };
   const openPickMenu = () => {
@@ -107,6 +114,9 @@ const Control = (props: PropsType) => {
               )}
               {item === "retro" && (
                 <SelectType name="retro" ary={retroArray} setState={setRetro} />
+              )}
+              {item === "gradient" && (
+                <SelectType name="gradient" ary={gradientArray} setState={setGradient} />
               )}
             </li>
           );
