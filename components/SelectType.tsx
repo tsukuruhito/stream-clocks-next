@@ -4,6 +4,7 @@ import {
   apexAtom,
   checkedIndexAtom,
   geometoryAtom,
+  gradientAtom,
   neonAtom,
   retroAtom,
   selectedTypeAtom,
@@ -24,6 +25,7 @@ const SelectType = (props: PropsType) => {
   const [geometoryIndex, setGeometoryIndex] = useAtom(geometoryAtom);
   const [apexIndex, setApexIndex] = useAtom(apexAtom);
   const [retroIndex, setRetroIndex] = useAtom(retroAtom);
+  const [gradientIndex, setGradientIndex] = useAtom(gradientAtom);
 
   const setClockType = (index: number, name: string) => {
     setState(ary[index]);
@@ -33,8 +35,10 @@ const SelectType = (props: PropsType) => {
       setGeometoryIndex(index);
     } else if (name === "apex") {
       setApexIndex(index);
-    } else {
+    } else if(name === "retro") {
       setRetroIndex(index);
+    } else if(name === "gradient") {
+      setGradientIndex(index);
     }
   };
   const openMenu = (e: FormEvent<HTMLButtonElement>, ary: string[]) => {
@@ -45,8 +49,10 @@ const SelectType = (props: PropsType) => {
       setState(ary[geometoryIndex]);
     } else if (name === "apex") {
       setState(ary[apexIndex]);
-    } else {
+    } else if(name === "retro") {
       setState(ary[retroIndex]);
+    }else if(name === "gradient"){
+      setState(ary[gradientIndex]);
     }
     if (ref.current) {
       ref.current.classList.toggle("hidden");

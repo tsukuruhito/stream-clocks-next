@@ -8,27 +8,40 @@ type PropsType = {
   geometory: string;
   apex: string;
   retro: string;
+  gradient: string;
 };
 const Time = (props: PropsType) => {
   const [date, setDate] = useState(new Date().toLocaleDateString());
-  const [time, setTime] = useState("");
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+  // const [second, setSecond] = useState("");
   const [day, setDay] = useState(
     new Date().toLocaleString("en-US", { weekday: "long" })
   );
-  const { color, neon, geometory, apex, retro } = props;
+  const { color, neon, geometory, apex, retro, gradient } = props;
   const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
 
   const getTime = useMemo(() => {
     setInterval(() => {
-      const datetime = new Date().toLocaleTimeString().slice(0, -3);
-      setDate(new Date().toLocaleDateString());
-      setDay(new Date().toLocaleString("en-US", { weekday: "long" }));
-      if (datetime.length === 4) {
-        setTime("0" + datetime);
+      const date = new Date();
+      setDate(date.toLocaleDateString());
+      setDay(date.toLocaleString("en-US", { weekday: "long" }));
+      if (date.getHours() < 10) {
+        setHour("0" + date.getHours());
       } else {
-        setTime(datetime);
+        setHour(String(date.getHours()));
       }
-    }, 500);
+      if (date.getMinutes() < 10) {
+        setMinute("0" + date.getMinutes());
+      }else{
+        setMinute(String(date.getMinutes()));
+      }
+      // if (date.getSeconds() < 10) {
+      //   setSecond("0" + date.getSeconds());
+      // }else{
+      //   setSecond(String(date.getSeconds()));
+      // }
+    }, 100);
   }, []);
 
   useEffect(() => {
@@ -44,6 +57,8 @@ const Time = (props: PropsType) => {
       return `${selectedType} ${apex}`;
     } else if (selectedType === "retro") {
       return `${selectedType} ${retro}`;
+    } else if(selectedType === "gradient") {
+      return `${selectedType} ${gradient}`;
     } else {
       return `${selectedType}`;
     }
@@ -59,7 +74,9 @@ const Time = (props: PropsType) => {
       >
         <div className="date_day">{day}</div>
         <div className="date_date">{date}</div>
-        <div className="date_time">{time}</div>
+        <div className="date_time">{hour}<span className="coron">:</span>{minute}
+        {/* <span className="second">{second}</span> */}
+        </div>
       </div>
     </div>
   );

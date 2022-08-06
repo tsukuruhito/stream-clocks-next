@@ -15,7 +15,8 @@ const Home: NextPage = () => {
   const [neon, setNeon] = useState("white");
   const [geometory, setGeometory] = useState("pattern1");
   const [apex, setApex] = useState("red");
-  const [retro, setRetro] = useState("pattern1");
+  const [retro, setRetro] = useState("retro1");
+  const [gradient, setGradient] = useState("gradient1");
 
   return (
     <>
@@ -43,6 +44,7 @@ const Home: NextPage = () => {
               geometory={geometory}
               apex={apex}
               retro={retro}
+              gradient={gradient}
             />
           </div>
         </div>
@@ -53,6 +55,7 @@ const Home: NextPage = () => {
           setGeometory={setGeometory}
           setApex={setApex}
           setRetro={setRetro}
+          setGradient={setGradient}
         />
       </div>
       <section className="base-font p-8 text-stone-500 max-w-screen-lg mx-auto">
