@@ -5,6 +5,7 @@ import Control from "../components/Control";
 import home from "../styles/scss/Home.module.scss";
 import dynamic from "next/dynamic";
 import Note from "../components/Note";
+import FloatLink from "../components/FloatLink";
 
 const AvoidSSRComponent = dynamic(() => import("../components/Time"), {
   ssr: false,
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
   const [gradient, setGradient] = useState("gradient1");
 
   return (
-    <>
+    <div className="relative">
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -122,7 +123,8 @@ const Home: NextPage = () => {
           </p>
         </section>
       </section>
-    </>
+      <FloatLink />
+    </div>
   );
 };
 

@@ -21,4 +21,9 @@ body{
   .headingSec{
     @apply text-xl font-bold text-primary pb-2 border-b-2 border-primary;
   }
+  .link{
+    @apply p-2 w-full inline-block cursor-pointer relative mb-2 border-b-2 
+    after:ml-2 after:w-2 after:h-2 after:inline-block after:align-middle after:border-2 after:rotate-45 after:border-l-0 after:border-b-0
+    after:absolute after:top-1/2 after:-translate-y-1/2 after:right-2
+  }
 }

@@ -7,7 +7,7 @@ const Note = () => {
       <ul className="mb-4 p-2">
         <li className="mb-2">
           <dl className="flex flex-row-reverse justify-end pb-2 border-b-[1px] border-primary border-opacity-60">
-            <dt><Link href="https://tsukuruhito.booth.pm/items/4106079" passHref><a className="text-link hover:underline font-bold">自分で作れる&#33;Custom Clockリリース</a></Link></dt>
+            <dt><a href="https://tsukuruhito.booth.pm/items/4106079" className="text-link hover:underline font-bold">自分で作れる&#33;Custom Clockリリース</a></dt>
             <dd className="mr-4">2022/08/22</dd>
           </dl>
         </li>

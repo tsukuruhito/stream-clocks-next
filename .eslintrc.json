@@ -1,4 +1,5 @@
 {
   "extends": "next/core-web-vitals",
-  "ignorePatterns": ["*.config.js"]
+  "ignorePatterns": ["*.config.js"],
+  "plugins": ["react", "react-hooks", "@react-three", "@react-three/fiber"]
 }
