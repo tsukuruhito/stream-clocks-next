@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 type SphereProps = {
     position?: [number, number, number];
-    color?: number;
+    color?: string;
 }
 const Sphere = (props:SphereProps) => {
     const {position, color} = props;
@@ -25,7 +25,7 @@ const Sphere = (props:SphereProps) => {
     return(
         <mesh position={position} ref={ref}>
             <sphereGeometry args={[0.5, 32, 32, 0, Math.PI*2, 0, Math.PI]}/>
-            <meshStandardMaterial attach="material" color={color} transparent opacity={opacity} roughness={0.3}/>
+            <meshStandardMaterial attach="material" color={Number(color)} transparent opacity={opacity} roughness={0.3}/>
         </mesh>
     )
 }
