@@ -23,7 +23,15 @@ type PropsType = {
   setGradient: Dispatch<SetStateAction<string>>;
 };
 const Control = (props: PropsType) => {
-  const { color, setColor, setNeon, setGeometory, setApex, setRetro, setGradient } = props;
+  const {
+    color,
+    setColor,
+    setNeon,
+    setGeometory,
+    setApex,
+    setRetro,
+    setGradient,
+  } = props;
   const array = [
     "noframe",
     "simple",
@@ -34,7 +42,7 @@ const Control = (props: PropsType) => {
     "geometory",
     "apex",
     "retro",
-    "gradient"
+    "gradient",
   ];
   const neonArray = ["neon-white", "neon-blue"];
   const geometoryArray = ["geo1", "geo2", "geo3", "geo4", "geo5"];
@@ -59,9 +67,9 @@ const Control = (props: PropsType) => {
       setGeometory(geometoryArray[geometoryIndex]);
     } else if (e.target.value === "apex") {
       setApex(apexArray[apexIndex]);
-    } else if(e.target.value === "retro") {
+    } else if (e.target.value === "retro") {
       setRetro(retroArray[retroIndex]);
-    }else if(e.target.value === "gradient") {
+    } else if (e.target.value === "gradient") {
       setGradient(gradientArray[gradientIndex]);
     }
   };
@@ -116,7 +124,11 @@ const Control = (props: PropsType) => {
                 <SelectType name="retro" ary={retroArray} setState={setRetro} />
               )}
               {item === "gradient" && (
-                <SelectType name="gradient" ary={gradientArray} setState={setGradient} />
+                <SelectType
+                  name="gradient"
+                  ary={gradientArray}
+                  setState={setGradient}
+                />
               )}
             </li>
           );

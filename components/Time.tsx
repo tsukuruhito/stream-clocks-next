@@ -33,7 +33,7 @@ const Time = (props: PropsType) => {
       }
       if (date.getMinutes() < 10) {
         setMinute("0" + date.getMinutes());
-      }else{
+      } else {
         setMinute(String(date.getMinutes()));
       }
       // if (date.getSeconds() < 10) {
@@ -57,7 +57,7 @@ const Time = (props: PropsType) => {
       return `${selectedType} ${apex}`;
     } else if (selectedType === "retro") {
       return `${selectedType} ${retro}`;
-    } else if(selectedType === "gradient") {
+    } else if (selectedType === "gradient") {
       return `${selectedType} ${gradient}`;
     } else {
       return `${selectedType}`;
@@ -74,8 +74,11 @@ const Time = (props: PropsType) => {
       >
         <div className="date_day">{day}</div>
         <div className="date_date">{date}</div>
-        <div className="date_time">{hour}<span className="coron">:</span>{minute}
-        {/* <span className="second">{second}</span> */}
+        <div className="date_time">
+          {hour}
+          <span className="coron">:</span>
+          {minute}
+          {/* <span className="second">{second}</span> */}
         </div>
       </div>
     </div>

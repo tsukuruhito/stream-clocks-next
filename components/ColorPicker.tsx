@@ -4,10 +4,11 @@ import { HexColorPicker } from "react-colorful";
 type PropsType = {
   color: string;
   setColor: Dispatch<SetStateAction<string>>;
+  className?: string;
 };
 const ColorPicker = (props: PropsType) => {
-  const { color, setColor } = props;
-  return <HexColorPicker color={color} onChange={setColor} />;
+  const { color, setColor,className } = props;
+  return <HexColorPicker color={color} onChange={setColor} className={className}/>;
 };
 
 export default ColorPicker;

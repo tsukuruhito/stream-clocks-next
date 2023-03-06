@@ -35,9 +35,9 @@ const SelectType = (props: PropsType) => {
       setGeometoryIndex(index);
     } else if (name === "apex") {
       setApexIndex(index);
-    } else if(name === "retro") {
+    } else if (name === "retro") {
       setRetroIndex(index);
-    } else if(name === "gradient") {
+    } else if (name === "gradient") {
       setGradientIndex(index);
     }
   };
@@ -49,9 +49,9 @@ const SelectType = (props: PropsType) => {
       setState(ary[geometoryIndex]);
     } else if (name === "apex") {
       setState(ary[apexIndex]);
-    } else if(name === "retro") {
+    } else if (name === "retro") {
       setState(ary[retroIndex]);
-    }else if(name === "gradient"){
+    } else if (name === "gradient") {
       setState(ary[gradientIndex]);
     }
     if (ref.current) {
