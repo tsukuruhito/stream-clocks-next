@@ -8,7 +8,7 @@ const FloatLink = () => {
     return (
         <>
             <nav
-                className={`fixed bottom-6 right-6 p-2 pb-12 rounded-lg bg-primary shadow-md base-font text-white transition-all duration-150 ${
+                className={`fixed z-50 bottom-6 right-6 p-2 pb-12 rounded-lg bg-primary shadow-md base-font text-white transition-all duration-150 ${
                     isOpen ? "opacity-1 visible" : "opacity-0 invisible"
                 }`}
             >
@@ -17,14 +17,14 @@ const FloatLink = () => {
                         <Link href="/">
                             <span className="link">TOP</span>
                         </Link>
-                        <Link href="/particles">
-                            <span className="link">【制作中】パーティクル</span>
+                        <Link href="/effects">
+                            <span className="link">配信背景エフェクト</span>
                         </Link>
                     </li>
                 </ul>
             </nav>
             <div
-                className={`fixed inline-block bottom-6 right-6 bg-primary rounded-lg`}
+                className={`fixed z-50 inline-block bottom-6 right-6 bg-primary rounded-lg`}
             >
                 <button
                     onClick={handleClick}

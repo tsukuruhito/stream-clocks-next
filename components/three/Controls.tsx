@@ -7,6 +7,7 @@ import {
     speedControlAtom,
 } from "../../Atom";
 import ColorPicker from "../ColorPicker";
+import EffectForm from "../EffectForm";
 
 export default function Controls() {
     const [particleColor, setParticleColor] = useAtom(particleColorAtom);
@@ -15,6 +16,20 @@ export default function Controls() {
     const [opacity, setOpacity] = useAtom(particleOpacityAtom);
     const [type, setType] = useAtom(particleTypeAtom);
 
+    const shapes = [
+        {
+            name: "sphere",
+            label: "Sphere",
+        },
+        {
+            name: "triangle",
+            label: "Triangle",
+        },
+        {
+            name: "circles",
+            label: "Circles",
+        },
+    ];
     const handleTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setType(e.target.value);
     };
@@ -41,30 +56,36 @@ export default function Controls() {
                     className="!w-40 !h-40"
                 />
             </li>
-            <li>
-                <h2 className="mb-1 text-lg">Amount</h2>
-                <p className="mb-1 text-base">現在の量：{amount}</p>
-                <input
-                    type="range"
-                    min={100}
-                    max={1000}
-                    step={100}
-                    value={amount}
-                    onChange={handleAmountChange}
-                />
-            </li>
-            <li>
-                <h2 className="mb-1 text-lg">Speed</h2>
-                <p className="mb-1 text-base">現在の落下速度：{speed}</p>
-                <input
-                    type="range"
-                    min={0.01}
-                    max={0.1}
-                    step={0.01}
-                    value={speed}
-                    onChange={handleSpeedChange}
-                />
-            </li>
+            {type !== "circles" && (
+                <>
+                    <li>
+                        <h2 className="mb-1 text-lg">Amount</h2>
+                        <p className="mb-1 text-base">現在の量：{amount}</p>
+                        <input
+                            type="range"
+                            min={100}
+                            max={1000}
+                            step={100}
+                            value={amount}
+                            onChange={handleAmountChange}
+                        />
+                    </li>
+                    <li>
+                        <h2 className="mb-1 text-lg">Speed</h2>
+                        <p className="mb-1 text-base">
+                            現在の落下速度：{speed}
+                        </p>
+                        <input
+                            type="range"
+                            min={0.01}
+                            max={0.1}
+                            step={0.01}
+                            value={speed}
+                            onChange={handleSpeedChange}
+                        />
+                    </li>
+                </>
+            )}
             <li>
                 <h2 className="mb-1 text-lg">Opacity</h2>
                 <p className="mb-1 text-base">現在の不透明度：{opacity}</p>
@@ -72,7 +93,7 @@ export default function Controls() {
                     type="range"
                     min={0}
                     max={1}
-                    step={0.1}
+                    step={0.001}
                     value={opacity}
                     onChange={handleOpacityChange}
                 />
@@ -81,25 +102,22 @@ export default function Controls() {
                 <h2 className="mb-1 text-lg">Type</h2>
                 <p className="mb-1 text-base">現在のタイプ：</p>
                 <div className="flex items-center gap-2">
-                <input
-                    type="radio"
-                    value="sphere"
-                    name="type"
-                    checked={type === "sphere"}
-                    onChange={handleTypeChange}
-                />
-                <label htmlFor="sphere">sphere</label>
+                    {shapes.map((shape) => (
+                        <label key={shape.name}>
+                            <input
+                                type="radio"
+                                name="type"
+                                value={shape.name}
+                                checked={type === shape.name}
+                                onChange={handleTypeChange}
+                            />
+                            {shape.label}
+                        </label>
+                    ))}
                 </div>
-                <div className="flex items-center gap-2">
-                <input
-                    type="radio"
-                    value="triangle"
-                    name="type"
-                    checked={type === "triangle"}
-                    onChange={handleTypeChange}
-                />
-                <label htmlFor="triangle">triangle</label>
-                </div>
+            </li>
+            <li>
+                <EffectForm />
             </li>
         </ul>
     );

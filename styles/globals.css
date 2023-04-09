@@ -26,4 +26,7 @@ body{
     after:ml-2 after:w-2 after:h-2 after:inline-block after:align-middle after:border-2 after:rotate-45 after:border-l-0 after:border-b-0
     after:absolute after:top-1/2 after:-translate-y-1/2 after:right-2
   }
+  .sidebar{
+    @apply overflow-y-scroll max-h-[calc(100vh-96px)]
+  }
 }
