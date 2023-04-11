@@ -1,18 +1,24 @@
 import { useAtom } from "jotai";
 import { particleTypeAtom } from "../../Atom";
-import DropSphere from "./DropSphere";
-import Triangles from "./Triangle";
+import Blooms from "./Shapes/Bloom";
+import Circles from "./Shapes/Circles";
+import Spheres from "./Shapes/Spheres";
+import Triangles from "./Shapes/Triangle";
 
 export function DropConf() {
     const [type, setType] = useAtom(particleTypeAtom);
     const renderParticle = () => {
         switch (type) {
             case "sphere":
-                return <DropSphere />;
+                return <Spheres />;
             case "triangle":
                 return <Triangles />;
+            case "bloom":
+                return <Blooms />;
+            case "circles":
+                return <Circles />;
             default:
-                return <DropSphere />;
+                return <Spheres />;
         }
     };
     return <>{renderParticle()}</>;
