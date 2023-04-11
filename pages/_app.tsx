@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     name="description"
                     content="ライブ配信でお使いいただける時計オーバーレイです。デザインの切り替えもOBSから行えるこれまでにないオーバーレイです。"
                 />
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5696595671065230" crossOrigin="anonymous"></script>
             </Head>
             <GoogleTagManager
                 googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
