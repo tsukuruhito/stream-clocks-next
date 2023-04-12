@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Control from "../components/Control";
 // import Time from "../components/Time";
 import home from "../styles/scss/Home.module.scss";
 import dynamic from "next/dynamic";
 import Note from "../components/Note";
 import FloatLink from "../components/FloatLink";
+import Loading from "../components/Loading";
+import { useAtom } from "jotai";
+import { clockColorAtom } from "../Atom";
 
 const AvoidSSRComponent = dynamic(() => import("../components/Time"), {
     ssr: false,
@@ -18,6 +21,18 @@ const Home: NextPage = () => {
     const [apex, setApex] = useState("red");
     const [retro, setRetro] = useState("retro1");
     const [gradient, setGradient] = useState("gradient1");
+    const [clockColor, setClockColor] = useAtom(clockColorAtom);
+
+    useEffect(() => {
+        if (clockColor) {
+            setColor(clockColor);
+        } else {
+            setColor("#d5c3a4");
+        }
+    }, []);
+    useEffect(() => {
+        setClockColor(color);
+    }, [color]);
 
     return (
         <div className="relative">
@@ -135,6 +150,7 @@ const Home: NextPage = () => {
                 </section>
             </section>
             <FloatLink />
+            <Loading />
         </div>
     );
 };

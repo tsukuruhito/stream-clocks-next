@@ -14,3 +14,5 @@ export const speedControlAtom = atom(0.05);
 export const particleTypeAtom = atom("sphere");
 export const particleAmountAtom = atom(300);
 export const particleOpacityAtom = atom(0.5);
+
+export const clockColorAtom = atomWithStorage("clockColor", "#d5c3a4");

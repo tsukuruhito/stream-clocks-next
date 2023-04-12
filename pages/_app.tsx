@@ -6,6 +6,7 @@ import GoogleTagManager, {
     GoogleTagManagerId,
 } from "../components/GoogleTagManager";
 import { googleTagManagerId } from "../gtm";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     name="description"
                     content="ライブ配信でお使いいただける時計オーバーレイです。デザインの切り替えもOBSから行えるこれまでにないオーバーレイです。"
                 />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5696595671065230" crossOrigin="anonymous"></script>
+                <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5696595671065230" crossOrigin="anonymous"></Script>
             </Head>
             <GoogleTagManager
                 googleTagManagerId={googleTagManagerId as GoogleTagManagerId}

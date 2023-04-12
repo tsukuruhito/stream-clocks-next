@@ -5,6 +5,12 @@ const Note = () => {
         <div className="contentBox">
             <h2 className="headingSec">Note</h2>
             <ul className="mb-4 p-2">
+            <li className="mb-2">
+                    <dl className="flex flex-row-reverse justify-end pb-2 border-b-[1px] border-primary border-opacity-60">
+                        <dt><Link href="/effects" className="text-link hover:underline font-bold">配信背景エフェクト</Link>がリリースされました。</dt>
+                        <dd className="mr-4">2023/04/11</dd>
+                    </dl>
+                </li>
                 <li className="mb-2">
                     <dl className="flex flex-row-reverse justify-end pb-2 border-b-[1px] border-primary border-opacity-60">
                         <dt>

@@ -5,6 +5,7 @@ import FloatLink from "../components/FloatLink";
 import Sidebar from "../components/three/Sidebar";
 import { DropConf } from "../components/three/DropConf";
 import Effectors from "../components/three/Effectors";
+import Loading from "../components/Loading";
 
 function particles() {
     let width, height, aspect;
@@ -16,7 +17,7 @@ function particles() {
     }, []);
 
     return (
-        <>
+        <div className="relative">
             <div className="w-screen h-screen">
                 <Canvas>
                     <PerspectiveCamera
@@ -44,7 +45,8 @@ function particles() {
             <div className="fixed z-30 top-2 right-2">
                 <Sidebar />
             </div>
-        </>
+            <Loading />
+        </div>
     );
 }
 export default particles;
