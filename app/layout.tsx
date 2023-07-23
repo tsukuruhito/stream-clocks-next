@@ -1,7 +1,7 @@
 import Script from "next/script";
 import "./globals.css";
 import Head from "next/head";
-import GoogleTagManager from "../components/GoogleTagManager";
+// import GoogleTagManager from "../components/GoogleTagManager";
 // import { googleTagManagerId } from "../gtm";
 import FloatLink from "../components/FloatLink";
 import { Suspense } from "react";
