@@ -2,14 +2,18 @@ import { Metadata } from "next";
 import Script from "next/script";
 import home from "../styles/Home.module.scss";
 import Note from "../components/clocks/Note";
-import Time from "../components/clocks/Time";
 import Control from "../components/clocks/Control";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
     title: "Stream Tools | Clocks",
     description:
         "ライブ配信でお使いいただける時計オーバーレイです。デザインの切り替えもOBSから行えるこれまでにないオーバーレイです。 This is a clock overlay that can be used for live streaming. It is an overlay that can switch designs from OBS.",
 };
+
+const Time = dynamic(() => import("../components/clocks/Time"), {
+    ssr: false,
+});
 
 export default async function Page() {
     return (
