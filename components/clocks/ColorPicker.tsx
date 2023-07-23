@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Dispatch, SetStateAction, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 
