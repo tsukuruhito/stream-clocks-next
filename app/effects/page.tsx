@@ -2,7 +2,6 @@ import FloatLink from "../../components/FloatLink";
 import CustomCanvas from "../../components/three/CustomCanvas";
 import Sidebar from "../../components/three/Sidebar";
 import { Metadata } from "next";
-// import Loading from "../../components/Loading";
 
 export const metadata: Metadata = {
     title: "Stream Tools | Effects",
