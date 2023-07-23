@@ -8,7 +8,7 @@ export const metadata = {
     openGraph: {
         title: "Stream Tools",
         description:
-            "配信用の時計オーバーレイや背景エフェクトを提供しています。",
+            "配信用の時計オーバーレイや背景エフェクト",
         url: "https://stream-clocks.com",
         siteName: "Stream Tools",
         locale: "jp_JP",
@@ -17,7 +17,7 @@ export const metadata = {
     twitter: {
         title: "Stream Tools",
         description:
-            "配信用の時計オーバーレイや背景エフェクトを提供しています。",
+            "配信用の時計オーバーレイや背景エフェクト",
         site: "@ts_create_",
         cardType: "summary_large_image",
     },
