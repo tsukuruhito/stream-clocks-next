@@ -2,8 +2,10 @@ import Script from "next/script";
 import "./globals.css";
 import Head from "next/head";
 import GoogleTagManager from "../components/GoogleTagManager";
-import { googleTagManagerId } from "../gtm";
+// import { googleTagManagerId } from "../gtm";
 import FloatLink from "../components/FloatLink";
+import { Suspense } from "react";
+import Analytics from "../components/Analytics";
 
 export default function RootLayou({ children }: { children: React.ReactNode }) {
     return (
@@ -18,19 +20,22 @@ export default function RootLayou({ children }: { children: React.ReactNode }) {
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5696595671065230"
                     crossOrigin="anonymous"
                 ></Script>
-                <GoogleTagManager googleTagManagerId={googleTagManagerId} />
+                {/* <GoogleTagManager googleTagManagerId={googleTagManagerId} /> */}
             </Head>
             <body className="relative">
                 {/* Google Tag Manager (noscript) */}
-                <noscript>
+                {/* <noscript>
                     <iframe
                         src={`https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}`}
                         height="0"
                         width="0"
                         style={{ display: "none", visibility: "hidden" }}
                     ></iframe>
-                </noscript>
+                </noscript> */}
                 {/* End Google Tag Manager (noscript) */}
+                <Suspense>
+                    <Analytics />
+                </Suspense>
                 {children}
                 <FloatLink />
             </body>

@@ -1,8 +1,30 @@
-export const googleTagManagerId =
-    process.env.GTM_ID || "";
+// export const googleTagManagerId =
+//     process.env.GTM_ID || "";
 
-declare global {
-    interface Window {
-        dataLayer: Record<string, unknown>[];
-    }
+// declare global {
+//     interface Window {
+//         dataLayer: Record<string, unknown>[];
+//     }
+// }
+// lib/gtm.ts
+type WindowWithDataLayer = Window & {
+  dataLayer: Record<string, any>[]
+}
+
+declare const window: WindowWithDataLayer
+
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+
+export const pageview = (url: string) => {
+  if (typeof window.dataLayer !== "undefined") {
+    window.dataLayer.push({
+      event: "pageview",
+      page: url,
+    })
+  } else {
+    console.log({
+      event: "pageview",
+      page: url,
+    })
+  }
 }
