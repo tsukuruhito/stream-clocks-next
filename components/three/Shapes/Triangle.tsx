@@ -1,9 +1,5 @@
+'use client';
 import { useFrame } from "@react-three/fiber";
-import {
-    Bloom,
-    DepthOfField,
-    EffectComposer,
-} from "@react-three/postprocessing";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";

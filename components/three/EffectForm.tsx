@@ -1,3 +1,4 @@
+"use client";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import {
@@ -6,7 +7,7 @@ import {
     particleOpacityAtom,
     particleTypeAtom,
     speedControlAtom,
-} from "../Atom";
+} from "../../Atom";
 
 type effectType = {
     effectName: string;

@@ -12,14 +12,6 @@
   }
 }
 
-.row{
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
 .page_title{
   color: #666;
   font-family: a-otf-jun-pro, sans-serif;
@@ -27,9 +19,6 @@
   font-style: normal;
 }
 .control{
-  padding: 1rem;
-  border-top: 3px solid #EEEDE7;
-  border-bottom: 3px solid #EEEDE7;
   box-sizing: border-box;
   max-width: 900px;
   width: 100%;
@@ -39,63 +28,31 @@
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    > li{
-      cursor: pointer;
-      margin: 10px;
-      font-size: 20px;
-      color: #868B8E;
-      background-color: #EEEDE7;
-      padding-right: 10px;
-      box-sizing: border-box;
-      border-radius: 10px;
-      font-family: a-otf-jun-pro, sans-serif;
-      font-weight: 300;
-      font-style: normal;
-      display: flex;
-      align-items: center;
-      position: relative;
-      &::before{
-        content: "";
-        position: absolute;
-        border: 1px solid #868B8E;
-        border-radius: 10px;
-        box-sizing: border-box;
-        display: block;
-        width:100%;
-        height: 100%;
-        left: -3px;
-        top: -3px;
-        pointer-events: none;
-      }
+    max-height: 150px;
+    overflow: hidden scroll;
+
+    scrollbar-color: #eaeaea #fff;
+    scrollbar-width: 8px;
+    &::-webkit-scrollbar{
+      width: 8px;
     }
-  }
-  .select{
-    background-color: #d5ccc3;
-    color: #ffffff;
-    position: absolute;
-    right: 0;
-    z-index: 100;
-    width: 300%;
-    text-align: left;
+    &::-webkit-scrollbar-track{
+      background: #eeeeee;
+      border-radius: 999px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: #adadad;
+      border-radius: 999px;
+    }
+
     li{
-      padding: 5px;
-      box-sizing: border-box;
       position: relative;
-      &:not(:last-child){
-        border-bottom: 1px solid #ffffff;
-      }
-    }
-    input,label{
-      display: inline-block;
-      width: auto;
-      accent-color: #9b7e61;
-      border-color: #fff;
     }
   }
   input[type="radio"]{
     display: none;
     &:checked + label::before{
-      background-color: #d5c3a4;
+      background: radial-gradient(#47a8ca, transparent);
     }
   }
   label{
@@ -114,7 +71,7 @@
       height: 15px;
       border-radius: 50%;
       background-color: #fff;
-      border: 2px solid #868B8E;
+      border: 1px solid #eaeaea;
       box-sizing: border-box;
     }
   }

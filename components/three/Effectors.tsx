@@ -1,3 +1,4 @@
+'use client';
 import {
     EffectComposer,
     Bloom,
@@ -7,7 +8,7 @@ import { useAtom } from "jotai";
 import { useEffect } from "react";
 import { particleTypeAtom } from "../../Atom";
 export default function Effectors() {
-    const [type, setType] = useAtom(particleTypeAtom);
+    const [type] = useAtom(particleTypeAtom);
     const setEffect = () => {
         if (type === "circles") {
             return (

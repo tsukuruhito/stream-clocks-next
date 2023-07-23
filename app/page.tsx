@@ -1,78 +1,46 @@
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import Control from "../components/Control";
-// import Time from "../components/Time";
-import home from "../styles/scss/Home.module.scss";
-import dynamic from "next/dynamic";
-import Note from "../components/Note";
-import FloatLink from "../components/FloatLink";
-import Loading from "../components/Loading";
-import { useAtom } from "jotai";
-import { clockColorAtom } from "../Atom";
+import { Metadata } from "next";
+import Script from "next/script";
+import home from "../styles/Home.module.scss";
+import Note from "../components/clocks/Note";
+import Time from "../components/clocks/Time";
+import Control from "../components/clocks/Control";
+import { Suspense } from "react";
 
-const AvoidSSRComponent = dynamic(() => import("../components/Time"), {
-    ssr: false,
-});
+export const metadata: Metadata = {
+    title: "Stream Tools | Clocks",
+    description:
+        "ライブ配信でお使いいただける時計オーバーレイです。デザインの切り替えもOBSから行えるこれまでにないオーバーレイです。 This is a clock overlay that can be used for live streaming. It is an overlay that can switch designs from OBS.",
+};
 
-const Home: NextPage = () => {
-    const [color, setColor] = useState("#d5c3a4");
-    const [neon, setNeon] = useState("white");
-    const [geometory, setGeometory] = useState("pattern1");
-    const [apex, setApex] = useState("red");
-    const [retro, setRetro] = useState("retro1");
-    const [gradient, setGradient] = useState("gradient1");
-    const [clockColor, setClockColor] = useAtom(clockColorAtom);
-
-    useEffect(() => {
-        if (clockColor) {
-            setColor(clockColor);
-        } else {
-            setColor("#d5c3a4");
-        }
-    }, []);
-    useEffect(() => {
-        setClockColor(color);
-    }, [color]);
-
+export default async function Page() {
     return (
         <div className="relative">
-            <script
+            <Script
                 dangerouslySetInnerHTML={{
                     __html: `
-            (function(d) {
-              var config = {
-                kitId: 'umc4qnh',
-                scriptTimeout: 3000,
-                async: true
-              },
-              h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-            })(document);
-          `,
+                      (function(d) {
+                        var config = {
+                          kitId: 'umc4qnh',
+                          scriptTimeout: 3000,
+                          async: true
+                        },
+                        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+                      })(document);
+                    `,
                 }}
             />
-            <div className={home.row}>
+            <div className="flex flex-wrap justify-center items-center relative">
                 <div className="m-8">
                     <p className="base-font text-primary font-bold">View</p>
                     <div className={home.frame}>
-                        <AvoidSSRComponent
-                            color={color}
-                            neon={neon}
-                            geometory={geometory}
-                            apex={apex}
-                            retro={retro}
-                            gradient={gradient}
-                        />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Time />
+                        </Suspense>
                     </div>
                 </div>
-                <Control
-                    color={color}
-                    setColor={setColor}
-                    setNeon={setNeon}
-                    setGeometory={setGeometory}
-                    setApex={setApex}
-                    setRetro={setRetro}
-                    setGradient={setGradient}
-                />
+                <div className="box">
+                    <Control />
+                </div>
             </div>
             <section className="base-font p-8 text-stone-500 max-w-screen-lg mx-auto">
                 <h1 className="text-2xl inline-block font-semibold mb-4 text-primary">
@@ -101,7 +69,7 @@ const Home: NextPage = () => {
                     <p>今後、どんどん拡張されていくのでお楽しみに！</p>
                 </div>
                 <div className="text-base flex justify-between mb-8 flex-wrap">
-                    <div className="contentBox">
+                    <div className="contentBox box">
                         <h2 className="headingSec">使用方法</h2>
                         <ol className="list-inside list-decimal p-2">
                             <li>OBSのソースからブラウザを選択</li>
@@ -149,10 +117,6 @@ const Home: NextPage = () => {
                     </p>
                 </section>
             </section>
-            <FloatLink />
-            <Loading />
         </div>
     );
-};
-
-export default Home;
+}

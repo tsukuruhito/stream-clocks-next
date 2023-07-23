@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
+'use client'
+import { Dispatch, SetStateAction, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 
 type PropsType = {

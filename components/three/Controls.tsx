@@ -1,3 +1,4 @@
+"use client";
 import { useAtom } from "jotai";
 import {
     particleAmountAtom,
@@ -6,8 +7,8 @@ import {
     particleTypeAtom,
     speedControlAtom,
 } from "../../Atom";
-import ColorPicker from "../ColorPicker";
-import EffectForm from "../EffectForm";
+import ColorPicker from "../clocks/ColorPicker";
+import EffectForm from "./EffectForm";
 
 export default function Controls() {
     const [particleColor, setParticleColor] = useAtom(particleColorAtom);

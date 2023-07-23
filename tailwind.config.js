@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
+        "./app/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
@@ -9,8 +10,8 @@ module.exports = {
         colors: {
             transparent: "transparent",
             white: "#fff",
-            primary: "#d5c3a4",
-            secondary: "#f5efe5",
+            primary: "#47a8ca",
+            secondary: "#47A8CA",
             link: "#ff4a4a",
         },
     },

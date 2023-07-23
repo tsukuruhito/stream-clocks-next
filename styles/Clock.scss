@@ -17,7 +17,6 @@
     font-family: futura-pt,sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #fff;
     width: 350px;
     text-align: center;
     line-height: 1;
@@ -170,6 +169,7 @@
   &-blue{
     border: 5px solid #0a7e87;
     background-color:#1b3a42;
+    @extend .neon;
     &::before{
       border: 2px solid #fff;
       box-shadow: 0 0 10px rgba(255,255,255,0.8);
@@ -178,6 +178,7 @@
   &-white{
     border: 5px solid #fff;
     background-color:#dbdbdb;
+    @extend .neon;
     &::before{
       border: 2px solid #fff;
       box-shadow: 0 0 10px rgba(255,255,255,0.8);
@@ -282,33 +283,36 @@
       box-sizing: border-box;
       border-radius: 15px;
     }
-  &.geo1{
+  &-1{
     background-color:#EEEDE7;
     color: #868B8E;
+    @extend .geometory;
     &::before{
       border: 3px solid #868B8E;
     }
   }
-  &.geo2{
+  &-2{
     background-color:#e4e990;
     color: #ffffff;
+    @extend .geometory;
     &::before{
       border: 3px solid #A2AD69;
     }
   }
-  &.geo3{
+  &-3{
     background-color:#c3edfd;
     color: #ffffff;
+    @extend .geometory;
     &::before{
       border: 3px solid #fff;
     }
   }
-  &.geo4{
+  &-4{
     background-color: #fff;
     color: #b2d134;
     border-radius: 10px;
     border: 3px solid #b2d134;
-    box-sizing: border-box;
+    @extend .geometory;
     &::before{
       display: none;
     }
@@ -325,12 +329,12 @@
       background: repeating-linear-gradient(-45deg, #d9ee84, #d9ee84 10px, transparent 10px, transparent 20px );;
     }
   }
-  &.geo5{
+  &-5{
     background-color: #fff;
     color: #34c3d1;
     border-radius: 10px;
     border: 3px solid #34c3d1;
-    box-sizing: border-box;
+    @extend .geometory;
     &::before{
       display: none;
     }
@@ -382,12 +386,15 @@
   font-style: normal;
   &-red{
     background-image: url("/apex-r.png");
+    @extend .apex;
   }
   &-blue{
       background-image: url("/apex-b.png");
+      @extend .apex;
   }
   &-green{
       background-image: url("/apex-g.png");
+      @extend .apex;
   }
   .date_body{
     position: absolute;
@@ -435,13 +442,15 @@
   font-style: normal;
   background-repeat: no-repeat;
   background-size: contain;
-  &.retro1{
+  &-1{
     background-image: url("/retro-red.png");
     color: #fff;
+    @extend .retro;
   }
-  &.retro2{
+  &-2{
     background-image: url("/retro-beige.png");
     color: #A67C52;
+    @extend .retro;
   }
   .date_body{
     position: absolute;
@@ -466,12 +475,13 @@
   position: relative;
   width: 300px;
   height: 130px;
+  border-radius: 30px;
   box-sizing: border-box;
-  &.gradient{
+  &-1{
     background: linear-gradient(120deg, #ffdbf3 0%, #ffeaea 50%, #fff8e0 100%);
-    border-radius: 30px;
     outline: 2px solid #fff;
     outline-offset: -6px;
+    @extend .gradient;
   }
   
   .date_body{
@@ -510,11 +520,13 @@
       text-shadow: 0 0 10px rgba(255,164,137,0.8);
     }
   }
-  &.gradient2{
+  &-2{
     background: linear-gradient(120deg, #ffe6fb 0%, #ffeaea 50%, #fccbff 100%);
+    @extend .gradient;
   }
-  &.gradient3{
+  &-3{
     background: linear-gradient(133deg, #7dc3ff 0%, #bbf6ff 50%, #bcedf7 100%);
+    @extend .gradient;
     .date_day, .date_date{
       text-shadow: 0 0 10px rgba(119, 126, 177,0.8);
     }
@@ -522,8 +534,9 @@
       text-shadow: 0 0 10px rgba(119, 126, 177,0.8);
     }
   }
-  &.gradient4{
+  &-4{
     background: linear-gradient(120deg, #98ffc6 0%, #cbffe5 50%, #faffc9 100%);
+    @extend .gradient;
     .date_day, .date_date{
       text-shadow: 0 0 10px rgba(139, 177, 119,0.8);
     }

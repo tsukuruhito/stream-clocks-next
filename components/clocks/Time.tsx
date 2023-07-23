@@ -1,25 +1,22 @@
+"use client";
 import { useAtom } from "jotai";
 import { useEffect, useMemo, useState } from "react";
-import { selectedTypeAtom } from "../Atom";
+import { clockColorAtom, clockTypeAtom } from "../../Atom";
+import "../../styles/Clock.scss";
 
-type PropsType = {
-    color: string;
-    neon: string;
-    geometory: string;
-    apex: string;
-    retro: string;
-    gradient: string;
-};
-const Time = (props: PropsType) => {
+const Time = () => {
     const [date, setDate] = useState(new Date().toLocaleDateString());
     const [hour, setHour] = useState("");
     const [minute, setMinute] = useState("");
-    // const [second, setSecond] = useState("");
     const [day, setDay] = useState(
         new Date().toLocaleString("en-US", { weekday: "long" })
     );
-    const { color, neon, geometory, apex, retro, gradient } = props;
-    const [selectedType, setSelectedType] = useAtom(selectedTypeAtom);
+    const [currentType] = useAtom(clockTypeAtom);
+    const [currentColor] = useAtom(clockColorAtom);
+
+    const [clockType, setClockType] = useState("noframe");
+    const [clockColor, setClockColor] = useState("#47a8ca");
+    const [loading, setLoading] = useState(true);
 
     const getTime = useMemo(() => {
         setInterval(() => {
@@ -36,11 +33,6 @@ const Time = (props: PropsType) => {
             } else {
                 setMinute(String(date.getMinutes()));
             }
-            // if (date.getSeconds() < 10) {
-            //   setSecond("0" + date.getSeconds());
-            // }else{
-            //   setSecond(String(date.getSeconds()));
-            // }
         }, 100);
     }, []);
 
@@ -48,28 +40,21 @@ const Time = (props: PropsType) => {
         getTime;
     }, [getTime]);
 
-    const setClass = () => {
-        if (selectedType === "neon") {
-            return `${selectedType} ${neon}`;
-        } else if (selectedType === "geometory") {
-            return `${selectedType} ${geometory}`;
-        } else if (selectedType === "apex") {
-            return `${selectedType} ${apex}`;
-        } else if (selectedType === "retro") {
-            return `${selectedType} ${retro}`;
-        } else if (selectedType === "gradient") {
-            return `${selectedType} ${gradient}`;
-        } else {
-            return `${selectedType}`;
+    useEffect(() => {
+        if (currentType !== clockType) {
+            setClockType(currentType);
         }
-    };
+        if (currentColor !== clockColor) {
+            setClockColor(currentColor);
+        }
+    }, [currentType, currentColor]);
 
     return (
-        <div className={setClass()}>
+        <div className={clockType}>
             <div
                 className="date_body"
-                {...(selectedType === "noframe" && {
-                    style: { color: color },
+                {...(clockType === "noframe" && {
+                    style: { color: clockColor },
                 })}
             >
                 <div className="date_day">{day}</div>
@@ -78,7 +63,6 @@ const Time = (props: PropsType) => {
                     {hour}
                     <span className="coron">:</span>
                     {minute}
-                    {/* <span className="second">{second}</span> */}
                 </div>
             </div>
         </div>

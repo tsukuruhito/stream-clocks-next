@@ -1,3 +1,5 @@
+'use client';
+
 import { useFrame } from "@react-three/fiber";
 import { forwardRef, useRef } from "react";
 import { useAtom } from "jotai";
