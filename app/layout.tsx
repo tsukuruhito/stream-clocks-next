@@ -3,25 +3,25 @@ import FloatLink from "../components/FloatLink";
 import { Suspense } from "react";
 import Analytics from "../components/Analytics";
 
-// export const metadata = {
-//     metadata: new URL("https://stream-clocks.com"),
-//     openGraph: {
-//         title: "Stream Tools",
-//         description:
-//             "配信用の時計オーバーレイや背景エフェクトを提供しています。",
-//         url: "https://stream-clocks.com",
-//         siteName: "Stream Tools",
-//         locale: "jp_JP",
-//         type: "website",
-//     },
-//     twitter: {
-//         title: "Stream Tools",
-//         description:
-//             "配信用の時計オーバーレイや背景エフェクトを提供しています。",
-//         site: "@ts_create_",
-//         cardType: "summary_large_image",
-//     },
-// };
+export const metadata = {
+    metadata: new URL("https://stream-clocks.com"),
+    openGraph: {
+        title: "Stream Tools",
+        description:
+            "配信用の時計オーバーレイや背景エフェクトを提供しています。",
+        url: "https://stream-clocks.com",
+        siteName: "Stream Tools",
+        locale: "jp_JP",
+        type: "website",
+    },
+    twitter: {
+        title: "Stream Tools",
+        description:
+            "配信用の時計オーバーレイや背景エフェクトを提供しています。",
+        site: "@ts_create_",
+        cardType: "summary_large_image",
+    },
+};
 
 export default function RootLayou({ children }: { children: React.ReactNode }) {
     return (
