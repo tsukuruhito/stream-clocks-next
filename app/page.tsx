@@ -19,6 +19,7 @@ export default async function Page() {
     return (
         <div className="relative">
             <Script
+                id="typekit"
                 dangerouslySetInnerHTML={{
                     __html: `
                       (function(d) {
