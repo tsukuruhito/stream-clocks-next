@@ -4,7 +4,6 @@ import home from "../styles/Home.module.scss";
 import Note from "../components/clocks/Note";
 import Time from "../components/clocks/Time";
 import Control from "../components/clocks/Control";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
     title: "Stream Tools | Clocks",
@@ -33,9 +32,7 @@ export default async function Page() {
                 <div className="m-8">
                     <p className="base-font text-primary font-bold">View</p>
                     <div className={home.frame}>
-                        <Suspense fallback={<div>Loading...</div>}>
-                            <Time />
-                        </Suspense>
+                        <Time />
                     </div>
                 </div>
                 <div className="box">
