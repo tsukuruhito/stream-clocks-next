@@ -102,7 +102,7 @@ export default function Controls() {
             <li>
                 <h2 className="mb-1 text-lg">Type</h2>
                 <p className="mb-1 text-base">現在のタイプ：</p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                     {shapes.map((shape) => (
                         <label key={shape.name}>
                             <input

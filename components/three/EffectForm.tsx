@@ -76,12 +76,12 @@ export default function EffectForm() {
         getSaveList();
     };
     return (
-        <div className="flex flex-col gap-4 grid-">
+        <div className="flex flex-col gap-4">
             <div>
                 <p>
                     保存名<span className="text-xs">（※ローマ字入力）</span>
                 </p>
-                <div className="flex items-center text-sm gap-1">
+                <div className="flex items-center text-sm gap-1 flex-wrap">
                     <label htmlFor="name" className="sr-only">
                         保存名
                     </label>

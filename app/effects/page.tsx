@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 function particles() {
     return (
         <div className="relative">
-            <CustomCanvas />
-            <FloatLink />
-            <div className="fixed z-30 top-2 right-2">
+            <div className="flex gap-2">
+                <CustomCanvas />
                 <Sidebar />
             </div>
+                <FloatLink />
         </div>
     );
 }

@@ -16,7 +16,6 @@ const Time = () => {
 
     const [clockType, setClockType] = useState("noframe");
     const [clockColor, setClockColor] = useState("#47a8ca");
-    const [loading, setLoading] = useState(true);
 
     const getTime = useMemo(() => {
         setInterval(() => {

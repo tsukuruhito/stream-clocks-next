@@ -14,7 +14,7 @@ function CustomCanvas() {
         aspect = width / height;
     }, []);
     return (
-        <div className="w-screen h-screen">
+        <div className="relative w-4/5 h-full shadow-md" style={{ aspectRatio: 16 / 9 }}>
             <Canvas>
                 <PerspectiveCamera
                     position={[0, 0, 5]}
