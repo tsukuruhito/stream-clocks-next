@@ -2,8 +2,7 @@ import Controls from "./Controls";
 
 export default function Sidebar() {
     return (
-        <div className="sidebar">
-            <div className={`max-w-xs p-4 box-border bg-primary/20`}>
+        <div className="sidebar z-30 top-2 right-2 w-1/5 p-4 box-border bg-primary/0">
                 <div className="mb-8">
                     <h1 className="mb-4 text-xl">配信背景エフェクト</h1>
                     <div className="text-sm">
@@ -18,7 +17,6 @@ export default function Sidebar() {
                 <div>
                     <Controls />
                 </div>
-            </div>
         </div>
     );
 }

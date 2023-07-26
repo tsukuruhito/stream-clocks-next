@@ -30,5 +30,19 @@ body {
     }
     .sidebar {
         @apply overflow-y-scroll max-h-[calc(100vh-96px)];
+        scrollbar-color: #eaeaea #fff;
+        scrollbar-width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar {
+        width: 8px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+        background: #eeeeee;
+        border-radius: 999px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #adadad;
+        border-radius: 999px;
     }
 }
