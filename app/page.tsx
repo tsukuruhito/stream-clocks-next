@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import Script from "next/script";
 import home from "../styles/Home.module.scss";
-import Note from "../components/clocks/Note";
 import Control from "../components/clocks/Control";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
+export type NoteType = {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    title: string;
+    date: string;
+    link: string;
+};
 export const metadata: Metadata = {
     title: "Stream Tools | Clocks",
     description:
@@ -15,7 +25,19 @@ const Time = dynamic(() => import("../components/clocks/Time"), {
     ssr: false,
 });
 
+async function getNote() {
+    const res = await fetch("https://stream-tools.microcms.io/api/v1/note", {
+        headers: {
+            "X-MICROCMS-API-KEY": process.env.CMS_API_KEY || "",
+        },
+    });
+    if (!res.ok) throw new Error("fetch error");
+
+    return res.json();
+}
+
 export default async function Page() {
+    const data = await getNote();
     return (
         <div className="relative">
             <Script
@@ -71,16 +93,16 @@ export default async function Page() {
                     <p>今後、どんどん拡張されていくのでお楽しみに！</p>
                 </div>
                 <div className="text-base flex justify-between mb-8 flex-wrap">
-                    <div className="contentBox box">
+                    <div className="contentBox box text-sm">
                         <h2 className="headingSec">使用方法</h2>
-                        <ol className="list-inside list-decimal p-2">
+                        <ol className="list-inside list-decimal p-2 pl-6 -indent-4">
                             <li>OBSのソースからブラウザを選択</li>
                             <li>このサイトのURLをコピー&amp;ペースト</li>
                             <li>
                                 時計の表示エリアと操作エリアが入るように幅と高さを指定
                             </li>
                             <li>
-                                透過されていない場合は以下をカスタムCSSにコピー&amp;ペースト
+                                透過されていない場合は以下をカスタムCSSに追加
                                 <div>
                                     body&#123;background-color: rgba(0, 0, 0,
                                     0);&#125;
@@ -91,7 +113,50 @@ export default async function Page() {
                             </li>
                         </ol>
                     </div>
-                    <Note />
+                    <div className="contentBox box text-sm">
+                        <h2 className="headingSec">Note</h2>
+                        <ul className="mb-4 p-2">
+                            {data.contents.map((item: NoteType) => {
+                                return (
+                                    <li className="mb-2">
+                                        <dl className="flex flex-row-reverse justify-end pb-2 border-b-[1px] border-primary border-opacity-60">
+                                            {item.link ? (
+                                                <dt>
+                                                    {item.link.startsWith(
+                                                        "/"
+                                                    ) ? (
+                                                        <Link
+                                                            href={item.link}
+                                                            className="text-link hover:underline font-bold"
+                                                        >
+                                                            {item.title}
+                                                        </Link>
+                                                    ) : (
+                                                        <a
+                                                            href={item.link}
+                                                            className="text-link hover:underline font-bold"
+                                                        >
+                                                            {item.title}
+                                                        </a>
+                                                    )}
+                                                </dt>
+                                            ) : (
+                                                <dt>{item.title}</dt>
+                                            )}
+                                            <dd className="mr-4">
+                                                {item.date
+                                                    .substring(
+                                                        0,
+                                                        item.date.indexOf("T")
+                                                    )
+                                                    .replaceAll("-", "/")}
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
                 </div>
                 <section className="text-xs text-stone-500">
                     <p>
