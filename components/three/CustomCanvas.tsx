@@ -14,25 +14,23 @@ function CustomCanvas() {
         aspect = width / height;
     }, []);
     return (
-        <div className="relative w-4/5 h-full shadow-md" style={{ aspectRatio: 16 / 9 }}>
-            <Canvas>
-                <PerspectiveCamera
-                    position={[0, 0, 5]}
-                    focus={30}
-                    near={0.2}
-                    far={300}
-                    fov={35}
-                    aspect={aspect}
-                    makeDefault
-                />
-                <OrbitControls />
-                <fog attach="fog" args={["#fff", 10, 150]} />
-                <ambientLight intensity={1} />
-                <spotLight position={[10, 50, 10]} penumbra={1} castShadow />
-                <DropConf />
-                <Effectors />
-            </Canvas>
-        </div>
+        <Canvas>
+            <PerspectiveCamera
+                position={[0, 0, 5]}
+                focus={30}
+                near={0.2}
+                far={300}
+                fov={35}
+                aspect={aspect}
+                makeDefault
+            />
+            <OrbitControls />
+            <fog attach="fog" args={["#fff", 10, 150]} />
+            <ambientLight intensity={1} />
+            <spotLight position={[10, 50, 10]} penumbra={1} castShadow />
+            <DropConf />
+            <Effectors />
+        </Canvas>
     );
 }
 

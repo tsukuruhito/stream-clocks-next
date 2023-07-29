@@ -1,5 +1,14 @@
 import Link from "next/link";
-
+export type NoteType = {
+    id: string,
+    createdAt:  string,
+    updatedAt:  string,
+    publishedAt:  string,
+    revisedAt:  string,
+    title: string,
+    date:  string,
+    link:  string
+}[];
 const Note = () => {
     return (
         <div className="contentBox box text-sm">
