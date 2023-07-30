@@ -40,6 +40,11 @@ function Control() {
 
     const changeType = (e: ChangeEvent<HTMLInputElement>) => {
         setCurrentType(e.target.value);
+
+        // dataLayer is a global variable injected by Google Tag Manager
+        // ignore lint error
+        // @ts-ignore TS2339: Property 'dataLayer' does not exist on type 'Window & typeof globalThis'.
+        dataLayer.push({event: "clock-type-change", type: e.target.value})
     };
 
     if (error) return <div>failed to load</div>;
@@ -74,8 +79,9 @@ function Control() {
                                     value={item}
                                     onChange={changeType}
                                     checked={currentType === item}
+                                    className="clock-type"
                                 />
-                                <label htmlFor={item} className="clock-type">
+                                <label htmlFor={item}>
                                     {item}
                                 </label>
                             </li>

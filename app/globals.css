@@ -15,7 +15,7 @@ body {
     }
     .box {
         @apply bg-white rounded-lg p-4;
-        box-shadow: 5px 5px 20px #cccccc, -10px -10px 20px #ffffff;
+        box-shadow: 3px 3px 10px #cccccc, -5px -5px 10px #ffffff;
     }
     .contentBox {
         @apply my-2 box-border w-full md:w-[calc(50%_-_2rem)] relative;
